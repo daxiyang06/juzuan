@@ -142,7 +142,7 @@ public class CrowdListServiceImpl implements CrowdListService {
                                     String shopId = shopIdList.toString().substring(1, 3);
                                     stl.setShopScaleIdList(shopId);
                                 }
-                                simlikeTargetListMapper.insert(stl);
+                                //simlikeTargetListMapper.insert(stl);
                             }
 
                             //获取自主店铺
@@ -283,7 +283,7 @@ public class CrowdListServiceImpl implements CrowdListService {
                                         String shopId = shopIdList.toString().substring(1, 3);
                                         mtl.setShopScaleIdList(shopId);
                                     }
-                                    mylikeTargetListMapper.insert(mtl);
+                                    //mylikeTargetListMapper.insert(mtl);
                                 }
                             }
 

@@ -36,7 +36,7 @@ public class AdgroupRptsTotalGetServiceImpl implements AdgroupRptsTotalGetServic
     private AdgroupListMapper adgroupListMapper;
     @Autowired
     private AdgroupRptsTotalGetMapper adgroupRptsTotalGetMapper;
-    @Scheduled(cron = "*/5 * * * * ?")
+    //@Scheduled(cron = "*/5 * * * * ?")
     public String AdgroupRptsTotalGet(){
         List<AdgroupList> adgroupRptsTotalGets = adgroupListMapper.selectAllAdgroup();
         for (AdgroupList al:adgroupRptsTotalGets) {

@@ -183,10 +183,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="415" />
-    <option name="y" value="120" />
-    <option name="width" value="1400" />
-    <option name="height" value="452" />
+    <option name="x" value="145" />
+    <option name="y" value="68" />
+    <option name="width" value="1241" />
+    <option name="height" value="790" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -271,7 +271,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544520382895" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544521527098" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../yunrao2-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -371,7 +371,7 @@
       <workItem from="1544231038421" duration="4361000" />
       <workItem from="1544236697203" duration="11576000" />
       <workItem from="1544404170104" duration="17388000" />
-      <workItem from="1544490315466" duration="17264000" />
+      <workItem from="1544490315466" duration="17796000" />
     </task>
     <task id="LOCAL-00001" summary="12-4">
       <created>1543910201065</created>
@@ -449,7 +449,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="612711000" />
+    <option name="totallyTimeSpent" value="613243000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />

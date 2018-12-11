@@ -31,7 +31,7 @@ public class AdzoneListBindServiceImpl implements AdzoneListBindService {
     private TaobaoAuthorizeUserMapper taobaoAuthorizeUserMapper;
     @Autowired
     private AdzoneListBindMapper adzoneListBindMapper;
-    //@Scheduled(cron = "*/5 * * * * ?")
+    @Scheduled(cron = "*/5 * * * * ?")
     public String getBannerAdgroupAdzone(){
         List<AdgroupList> adgroupLists=adgroupListMapper.selectAllAdgroup();
         for (AdgroupList adgroupList:adgroupLists){

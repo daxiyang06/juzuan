@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e90cc9f-75d0-4711-8251-b7ac86001c76" name="Default Changelist" comment="12-11">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/AdzoneListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/AdzoneListServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CreativeListServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CreativeListServiceimpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CrowdListServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CrowdListServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="2e90cc9f-75d0-4711-8251-b7ac86001c76" name="Default Changelist" comment="12-11" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +50,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CreativeListServiceimpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+            <state relative-caret-position="99">
+              <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -296,7 +292,7 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544497506255" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544507064710" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$MAVEN_REPOSITORY$/json/commons-httpclient-3.1.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -304,7 +300,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15272373" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -396,7 +392,7 @@
       <workItem from="1544231038421" duration="4361000" />
       <workItem from="1544236697203" duration="11576000" />
       <workItem from="1544404170104" duration="17388000" />
-      <workItem from="1544490315466" duration="5507000" />
+      <workItem from="1544490315466" duration="6358000" />
     </task>
     <task id="LOCAL-00001" summary="12-4">
       <created>1543910201065</created>
@@ -453,7 +449,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600954000" />
+    <option name="totallyTimeSpent" value="601805000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -959,8 +955,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/juzuan/advertiser/rpts/service/impl/CreativeListServiceimpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+        <state relative-caret-position="99">
+          <caret line="51" column="38" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="38" />
         </state>
       </provider>
     </entry>

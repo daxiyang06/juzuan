@@ -44,7 +44,7 @@ public class AdgroupRptsTotalGetServiceImpl implements AdgroupRptsTotalGetServic
             String sessionKey = taobaoAuthorizeUser.getAccessToken();
             TaobaoClient client = new DefaultTaobaoClient(url,appkey,secret);
             ZuanshiAdvertiserAdgroupRptsTotalGetRequest req = new ZuanshiAdvertiserAdgroupRptsTotalGetRequest();
-            req.setStartTime("2018-11-01");
+            req.setStartTime("2018-08-29");
             req.setEndTime("2018-11-30");
             req.setEffect(7L);
             req.setCampaignModel(1L);

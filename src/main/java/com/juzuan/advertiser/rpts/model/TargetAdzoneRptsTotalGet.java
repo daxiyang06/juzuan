@@ -1,6 +1,6 @@
 package com.juzuan.advertiser.rpts.model;
 
-public class TargetRptsTotalGet {
+public class TargetAdzoneRptsTotalGet {
     private Integer id;
 
     private String taobaoUserId;
@@ -15,7 +15,9 @@ public class TargetRptsTotalGet {
 
     private Long targetId;
 
-    private String targetName;
+    private Long adzoneId;
+
+    private String adzoneName;
 
     private String cvr;
 
@@ -129,12 +131,20 @@ public class TargetRptsTotalGet {
         this.targetId = targetId;
     }
 
-    public String getTargetName() {
-        return targetName;
+    public Long getAdzoneId() {
+        return adzoneId;
     }
 
-    public void setTargetName(String targetName) {
-        this.targetName = targetName == null ? null : targetName.trim();
+    public void setAdzoneId(Long adzoneId) {
+        this.adzoneId = adzoneId;
+    }
+
+    public String getAdzoneName() {
+        return adzoneName;
+    }
+
+    public void setAdzoneName(String adzoneName) {
+        this.adzoneName = adzoneName == null ? null : adzoneName.trim();
     }
 
     public String getCvr() {

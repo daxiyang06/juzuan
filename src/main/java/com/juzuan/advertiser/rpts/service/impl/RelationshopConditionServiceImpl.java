@@ -52,10 +52,57 @@ public class RelationshopConditionServiceImpl implements RelationshopConditionSe
 
             RelationshopCondition rc = new RelationshopCondition();
             JSONObject object = JSON.parseObject(condition.toString());
-            JSONObject catList = object.getJSONObject("cat_list");
-            JSONObject shopScale = object.getJSONObject("shop_scale_list");
             JSONObject preferenceList = object.getJSONObject("shop_preference_list");
-            List<Object> list01 = new ArrayList<>(preferenceList.getJSONArray("shop_preference_d_t_o"));
+            JSONArray preference = preferenceList.getJSONArray("shop_preference_d_t_o");
+            System.out.println(preference);
+            for (Object o :preference.toArray()) {
+                JSONObject one = JSON.parseObject(o.toString());
+                System.out.println(one);
+                JSONObject catList = object.getJSONObject("cat_list");
+                if (catList == null){
+                    rc = new RelationshopCondition();
+                    rc.setTaobaoUserId(tau.getTaobaoUserId());
+                    rc.setShopPreferenceName(one.getString("shop_preference_name"));
+                    rc.setShopPreferenceValue(one.getString("shop_preference_value"));
+                    rc.setCateId("0");
+                    rc.setCateName("0");
+                    rc.setShopScaleId("0");
+                    rc.setShopScaleName("0");
+                    rc.setMaxPerSale(0L);
+                    rc.setMinPerSale(0L);
+                    relationshopConditionMapper.insert(rc);
+                }else {
+                    JSONArray category = catList.getJSONArray("category_d_t_o");
+                    for (Object ob :category.toArray()) {
+                        JSONObject two = JSON.parseObject(ob.toString());
+                        JSONObject shopScale = object.getJSONObject("shop_scale_list");
+                        if (shopScale == null){
+                            continue;
+                        }else {
+                            JSONArray scale = shopScale.getJSONArray("shop_scale_d_t_o");
+                            for (Object obj:scale.toArray()) {
+                                JSONObject three = JSON.parseObject(obj.toString());
+                                rc = new RelationshopCondition();
+                                rc.setTaobaoUserId(tau.getTaobaoUserId());
+                                rc.setMaxPerSale(object.getLong("max_per_sale"));
+                                rc.setMinPerSale(object.getLong("min_per_sale"));
+                                rc.setShopPreferenceName(one.getString("shop_preference_name"));
+                                rc.setShopPreferenceValue(one.getString("shop_preference_value"));
+                                rc.setCateId(two.getString("cate_id"));
+                                rc.setCateName(two.getString("cate_name"));
+                                rc.setShopScaleId(three.getString("shop_scale_id"));
+                                rc.setShopScaleName(three.getString("shop_scale_name"));
+                                relationshopConditionMapper.insert(rc);
+
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+           /* List<Object> list01 = new ArrayList<>(preferenceList.getJSONArray("shop_preference_d_t_o"));
             if (catList ==null){
                 continue;
             }else {
@@ -63,61 +110,24 @@ public class RelationshopConditionServiceImpl implements RelationshopConditionSe
                 if (preferenceList == null){
                     continue;
                 }else {
-                    //list.add("shop_scale_d_t_o" + " : " + shopScale.getJSONArray("shop_scale_d_t_o"));
-                    list.addAll(shopScale.getJSONArray("shop_scale_d_t_o"));
+                    list.add("\"scale_list\":{\"shop_scale_d_t_o\":" + shopScale.getJSONArray("shop_scale_d_t_o")+"}");
+                    //list.addAll(shopScale.getJSONArray("shop_scale_d_t_o"));
                 }
-                //list01.add("category_d_t_o" + " : " + list);
-                list01.addAll(list);
+                list01.add("\"category_list\":{\"category_d_t_o\":" + list+"}");
+                //list01.addAll(list);
             }
-            //System.out.println(list01.get(3).toString());
-            JSONArray one = JSON.parseArray(list01.toString());
-            for (Object o: one.toArray()) {
-                System.out.println(o);
-                JSONArray two = JSON.parseArray(list01.get(list01.size()-1).toString());
-                List<Object> list3 = new ArrayList<>(two);
-                for (Object ob:two.toArray()) {
-                    System.out.println(ob);
-                    JSONArray three = JSON.parseArray(list3.get(list3.size()-1).toString());
-                    for (Object obj: three.toArray()) {
-
-                        System.out.println(obj);
-
-                    }
-                }
-            }
-        }
-
-/*
-
-            if (catList==null){
-                continue;
-            }else {
-                JSONArray cate = catList.getJSONArray("category_d_t_o");
-                for (Object o:cate) {
-                    System.out.println("1 :"+o);
-                }
-            }
-            if (shopScale == null){
-                continue;
-            }else {
-                JSONArray scale = shopScale.getJSONArray("shop_scale_d_t_o");
-                for (Object ob:scale) {
-                    System.out.println("2 :"+ob);
-                }
-
-            }
-            if (preferenceList == null){
-                continue;
-            }else {
-                JSONArray preference = preferenceList.getJSONArray("shop_preference_d_t_o");
-                for (Object objec:preference) {
-                    System.out.println("3 :"+objec);
-                }
-
-            }
-
+            String datas ="{\"shop_list\":{\"list\":"+list01.toString()+"}}";
+            JSONArray data = JSONArray.fromObject(list01);
+            System.out.println(data);
 */
+/*            JSONObject two = JSON.parseObject(datas);
+            System.out.println(two);
+            JSONArray one = two.getJSONArray("list");
+            for (Object o: one.toArray()) {
+                System.out.println(o.toString());
 
+            }*/
+        }
 
         return "";
 

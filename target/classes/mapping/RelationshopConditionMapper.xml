@@ -23,6 +23,10 @@
     from taobao_zs_relationshop_packge_target_condition
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectDistinct" resultMap="BaseResultMap"  >
+    select distinct taobao_user_id,cate_id
+    from taobao_zs_relationshop_packge_target_condition
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from taobao_zs_relationshop_packge_target_condition
     where id = #{id,jdbcType=INTEGER}

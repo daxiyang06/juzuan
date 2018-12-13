@@ -35,6 +35,8 @@ public class CrowdListServiceImpl implements CrowdListService {
     private IndependentshopTargetListMapper independentshopTargetListMapper;
     @Autowired
     private SimlikeTargetListMapper simlikeTargetListMapper;
+    @Autowired
+    private MainstoreTargetListMapper mainstoreTargetListMapper;
     //@Scheduled(cron = "*/5 * * * * ?")
     public String CrowdList() throws ApiException {
         List<AdgroupList> cam = adgroupListMapper.selectAllAdgroup();
@@ -73,6 +75,77 @@ public class CrowdListServiceImpl implements CrowdListService {
                         //List<CrowdList> crowdLists = JSONObject.parseArray(dto.toString(),CrowdList.class);
                         for (Object obb : dto.toArray()) {
                             JSONObject ob = JSONObject.parseObject(obb.toString());
+
+                            //主营品牌人群
+                            if (ob.getLong("crowd_type") == 128L){
+                                MainstoreTargetList main = new MainstoreTargetList();
+                                main.setTaobaoUserId(adl.getTaobaoUserId());
+                                main.setCampaignId(ob.getLong("campaign_id"));
+                                main.setAdgroupId(ob.getLong("adgroup_id"));
+                                main.setCrowdName(ob.getString("crowd_name"));
+                                main.setCrowdType(ob.getLong("crowd_type"));
+                                main.setCrowdValue(ob.getString("crowd_value"));
+                                main.setGmtCreate(ob.getDate("gmt_create"));
+                                main.setGmtModified(ob.getDate("gmt_modified"));
+                                main.setTargetId(ob.getLong("id"));
+                                main.setMinPerSale(ob.getString("min_per_sale") == null ? "0" : ob.getString("min_per_sale"));
+                                main.setMaxPerSale(ob.getString("max_per_sale") == null ? "0" : ob.getString("max_per_sale"));
+                                main.setShopPreferenceValue(ob.getString("shop_preference_value") == null ? "0" : ob.getString("shop_preference_value"));
+                                main.setCatId(ob.getLong("cat_id") == null ? 0L : ob.getLong("cat_id"));
+                                main.setCatName(ob.getString("cat_name") == null ? "0" : ob.getString("cat_name"));
+
+                                //"matrix_prices":{
+                                JSONObject matrix = ob.getJSONObject("matrix_prices");
+                                //"matrix_price_d_t_o":[
+                                JSONObject mpd = JSONObject.parseObject(matrix.toString());
+                                JSONArray pdto = mpd.getJSONArray("matrix_price_d_t_o");
+                                if (pdto == null) {
+                                    main.setAdzoneId(0L);
+                                    main.setPrice(0L);
+                                } else {
+                                    for (Object mob : pdto.toArray()) {
+                                        JSONObject mdto = JSONObject.parseObject(mob.toString());
+                                        main.setAdzoneId(mdto.getLong("adzone_id") == null ? 0L : mdto.getLong("adzone_id"));
+                                        main.setPrice(mdto.getLong("price") == null ? 0L : mdto.getLong("price"));
+                                    }
+
+                                }
+                                //"sub_crowds":{
+                                JSONObject sub = ob.getJSONObject("sub_crowds");
+                                if (sub ==null){
+                                    continue;
+                                } else {
+                                    JSONObject scd = JSONObject.parseObject(sub.toString());
+                                    JSONArray cdto = scd.getJSONArray("sub_crowd_d_t_o");
+                                    if (cdto == null) {
+                                        main.setSubCrowdValue("0");
+                                        main.setSubCrowdName("0");
+                                    } else {
+                                        for (Object sob : cdto.toArray()) {
+                                            JSONObject subdto = JSONObject.parseObject(sob.toString());
+                                            main.setSubCrowdName(subdto.getString("sub_crowd_name") == null ? "0" : subdto.getString("sub_crowd_name"));
+                                            main.setSubCrowdValue(subdto.getString("sub_crowd_value") == null ? "0" : subdto.getString("sub_crowd_value"));
+                                        }
+                                    }
+                                }
+                                //"cat_id_list"
+                                JSONArray catIdList = ob.getJSONArray("cat_id_list");
+                                if (catIdList == null) {
+                                    main.setCatIdList("0");
+                                } else {
+                                    String catId = catIdList.toString().substring(1, 3);
+                                    main.setCatIdList(catId);
+                                }
+                                //"shop_scale_id_list"
+                                JSONArray shopIdList = ob.getJSONArray("shop_scale_id_list");
+                                if (shopIdList == null) {
+                                    main.setShopScaleIdList("0");
+                                } else {
+                                    String shopId = shopIdList.toString().substring(1, 3);
+                                    main.setShopScaleIdList(shopId);
+                                }
+                                mainstoreTargetListMapper.insert(main);
+                            }
 
                             //获取喜欢相似宝贝的人群
                             if (ob.getLong("crowd_type") == 702L || ob.getLong("crowd_type") == 131072L){
@@ -145,7 +218,7 @@ public class CrowdListServiceImpl implements CrowdListService {
                                 //simlikeTargetListMapper.insert(stl);
                             }
 
-                            //获取自主店铺
+                            //获取全店计划定向-自主店铺
                             if (ob.getLong("crowd_type") == 16L) {
                                 IndependentshopTargetList itl = new IndependentshopTargetList();
                                 itl.setTaobaoUserId(adl.getTaobaoUserId());

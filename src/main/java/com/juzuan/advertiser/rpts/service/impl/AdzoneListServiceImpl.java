@@ -86,13 +86,9 @@ public class AdzoneListServiceImpl implements AdzoneListService {
                    adzoneList.setBidScore(oo.getLong("bid_score"));
                    adzoneList.setCpmScore(oo.getLong("cpm_score"));
                    adzoneList.setCpcScore(oo.getLong("cpc_score"));
-                   //adzoneListMapper.insert(adzoneList);
-
-
+                   adzoneListMapper.insert(adzoneList);
                }
-
            }
-           System.out.println("ok");
     }
         return "";
    }

@@ -31,7 +31,7 @@ public class AdzoneListBindServiceImpl implements AdzoneListBindService {
     private TaobaoAuthorizeUserMapper taobaoAuthorizeUserMapper;
     @Autowired
     private AdzoneListBindMapper adzoneListBindMapper;
-    @Scheduled(cron = "*/5 * * * * ?")
+    //@Scheduled(cron = "*/5 * * * * ?")
     public String getBannerAdgroupAdzone(){
         List<AdgroupList> adgroupLists=adgroupListMapper.selectAllAdgroup();
         for (AdgroupList adgroupList:adgroupLists){
@@ -48,7 +48,7 @@ public class AdzoneListBindServiceImpl implements AdzoneListBindService {
             try {
                 rsp = client.execute(req, sessionKey);
             } catch (ApiException e) {
-               
+               e.printStackTrace();
             }
             System.out.println("正在打印输出  "+rsp.getBody());
             JSONObject one= JSON.parseObject(rsp.getBody());

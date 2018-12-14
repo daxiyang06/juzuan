@@ -76,7 +76,7 @@ public class CategoryRptsTotalGetServiceImpl implements CategoryRptsTotalGetServ
                     crtg.setEcpm(one.getString("ecpm"));
                     crtg.setCvr(one.getString("cvr"));
                     crtg.setRoi(one.getString("roi"));
-                    categoryRptsTotalGetMapper.insert(crtg);
+                    //categoryRptsTotalGetMapper.insert(crtg);
                 }
             }
         }
